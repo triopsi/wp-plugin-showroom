@@ -76,7 +76,7 @@
 .plgshow-star-rating .star-full::before {
     content: "\f155";
 }
-.plgshow-star-rating.star-half::before {
+.plgshow-star-rating .star-half::before {
     content: "\f459";
 }
 .plgshow-star-rating .star-empty::before {
