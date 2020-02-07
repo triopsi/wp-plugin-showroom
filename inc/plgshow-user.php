@@ -28,8 +28,6 @@ function add_plgshow_front_css() {
    /* CSS */
    wp_enqueue_style( 'plgshow-style', plugins_url('../assets/css/plgshow-style.css', __FILE__));
    wp_enqueue_style( 'dashicons' );
-   /* JS */
-//    wp_enqueue_script( 'plgshow-script', plugins_url('../assets/js/plgshow-script.js', __FILE__), array( 'jquery' ) );
 
 }
 
