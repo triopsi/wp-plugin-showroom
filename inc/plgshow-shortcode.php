@@ -54,6 +54,7 @@ function plgshow_shortcode($atts) {
     <?php
     if(!empty($name)){
         $plgin_data = apply_filters( 'plgshow_api_parser', $name );
+        var_dump($plgin_data);
         if( !$plgin_data ){
             $shortcode_view = '
             <div class="plgshow-showroom">
@@ -71,7 +72,7 @@ function plgshow_shortcode($atts) {
                 $shortcode_view = '
                 <div class="plgshow-showroom">
                     <div class="plgshow-plgtable">
-                        <div class="plgshow-image"><img class="plugin-icon" src="'.$plgin_data->icons.'"></div>
+                        <div class="plgshow-image"><img class="plugin-icon" src="'.$plgin_data->icons["1x"].'"></div>
                         <div class="plgshow-text-content">
                             <div class="plgshow-header">'.$plgin_data->name.'</div>
                             <div class="plgshow-description">'.$plgin_data->short_description.'</div>
