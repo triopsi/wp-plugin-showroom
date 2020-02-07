@@ -38,12 +38,6 @@ define('PLGSHOW_PATH', plugin_dir_path(__FILE__));
 /* Loads plugin's text domain. */
 add_action( 'init', 'plgshow_load_plugin_textdomain' );
 
-/* Admin Scripts */
-// require_once('inc/plgshow-admin.php');
-
-/* Admin Setting */
-// require_once('inc/plgshow-settings.php');
-
 /* Front Scripts and Styles */
 require_once('inc/plgshow-user.php');
 

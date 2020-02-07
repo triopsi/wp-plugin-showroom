@@ -33,9 +33,6 @@ function add_plgshow_front_css() {
 
 }
 
-/***************************************************************
- * Fetching plugins data with WordPress.org Plugin API
- ***************************************************************/
 add_filter( 'plgshow_api_parser', 'plgshow_plugin_api', 10, 1 );
 function plgshow_plugin_api( $slug ){
    // return $slug;
@@ -83,31 +80,7 @@ function plgshow_plugin_api( $slug ){
 				'banners' 			   => $plugin_info->banners,
 		);
 	}else{
-      $plgshow_data = (object) array(
-            'url' 				   => 'https://wordpress.org/plugins/about-us-shortcode/',
-            'name' 				   => 'About Us Team',
-            'slug' 				   => 'about-us-shortcode',
-            'version' 			   => '0.1.0',
-            'author' 			   => 'triopsi',
-            'author_profile'	   => array( array( 'name' => 'triopsi', 'image' => 'https://secure.gravatar.com/avatar/afb5c644ae8d03d2e886cc1a2bf84dd7?s=32&d=mm&r=g', 'url' => 'https://profiles.wordpress.org/triopsi/' ) ),
-            'contributors'		   => array( array( 'name' => 'triopsi', 'image' => 'https://secure.gravatar.com/avatar/afb5c644ae8d03d2e886cc1a2bf84dd7?s=32&d=mm&r=g', 'url' => 'https://profiles.wordpress.org/triopsi/' ) ),
-            'requires' 			   => 'WP 5.3+',
-            'tested' 			   => 'WP 5.3.2',
-            'rating' 			   => '100',
-            'num_ratings' 		   => '1',
-            'ratings'			   => '5',
-            'downloaded'		   => '77',
-            'active_installs'    => '20',
-            'last_updated' 	   => '06/02/2020',
-            'last_updated_mk'    => '06/02/2020',
-            'added' 			      => '06/02/2020',
-            'homepage' 			   => 'http://wiki.profoxi.de',
-            'short_description'  => 'A very simple "About Us" site Plugin. Create Teams and copy-paste the shortcode everywhere in your post or site.',
-            'download_link' 	   => 'https://downloads.wordpress.org/plugin/about-us-shortcode.0.1.0.zip',
-            'donate_link' 		   => 'https://www.paypal.me/triopsi',
-            'icons' 			      => 'https://ps.w.org/about-us-shortcode/assets/icon-128x128.png',
-            'banners' 			   => 'https://ps.w.org/about-us-shortcode/assets/banner-772x250.png',
-      );
+      $plgshow_data = null;
    }
 	return $plgshow_data;
 

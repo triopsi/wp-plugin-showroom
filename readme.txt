@@ -35,7 +35,8 @@ Nothing yet.
 == Screenshots ==
  
 1. Plugin Showroom in a Post
-2. Settings
+2. Plugin Showroom in a Post
+3. Shortcode in a post
  
 == Changelog ==
  

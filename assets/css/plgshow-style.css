@@ -1,15 +1,16 @@
+/*****************************************************************
+* WP Plugin Showroom CSS
+******************************************************************/
 .plgshow-showroom{
-    background-color: #f9f9f9;
     margin:15px 0 15px;
-    padding:5px;
     border: 1px solid #d4d4d4;
 }
-
 .plgshow-plgtable{
     position: relative;
     display: table;
+    background-color: #fff;
+    padding:5px;
 }
-
 .plgshow-image{
     display: table-cell;
     vertical-align: middle;
@@ -17,19 +18,25 @@
 }
 .plgshow-text-content{
     display: table-cell;
-    padding:5px;
+    padding: 0px 5px;
     word-wrap: break-word;
 }
 .plgshow-header{
     font-size: 1.2em;
     font-weight: 600;
+    word-wrap: break-word;
 }
-
+.plgshow-header a{
+    text-decoration: none;
+    box-shadow: none;
+}
 .plgshow-footer{
     margin-top: 10px;
     text-align: right;
-    padding-top: 10px;
+    padding: 10px 20px;
     border-top: 1px dotted #d4d4d4;
+    background-color: #f9f9f9;
+    font-size: 0.8em;
 }
 .plgshow-footer a{
     color:#fff;
@@ -38,6 +45,7 @@
     font-style: italic;
     font-size: 0.8em;
     color: #929292;
+    padding-top:5px;
 }
 .plgshow-yellow{
     color:#ffe600;
@@ -46,6 +54,17 @@
 .plgshow-footer-text{
     float: left;
     clear: left;
+}
+.plgshow-footer-text-downloads{
+    float: left;
+    clear: left;
+}
+.plgshow-footer-text-modi{
+    float: left;
+    clear: left;
+}
+.plgshow-footer-text{
+    font-size: 1em;
 }
 .plgshow-dwn-link{
     float: right;
@@ -57,7 +76,7 @@
     display: table;
 }
 .plgshow-star-rating{
-    display: inline;
+    display: inline-table;
 }
 .plgshow-star-rating .star {
     color: #ffb900;
@@ -81,4 +100,62 @@
 }
 .plgshow-star-rating .star-empty::before {
     content: "\f154";
+}
+a.plgshow-button{
+    color:#555;
+    background:#949494;
+    vertical-align: top;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1em;
+    margin: 0;
+    padding: 8px 15px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    white-space: nowrap;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    box-shadow: none;
+    border:1px solid #ccc;
+    transition: background-color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out;
+    margin-right: 10px;
+}
+a.plgshow-button:hover{
+    box-shadow: none;
+    background:#cccbcb;
+    color:#000;
+}
+/* Unter Tabletsgröße */
+@media (max-width: 991.98px) {
+    .plgshow-footer-text {
+        font-size: 1em;
+        display: block;
+        float: none;
+        clear: both;
+        margin-bottom: 10px;
+    }
+    .plgshow-footer {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .plgshow-dwn-link {
+        float: none;
+        clear: both;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .plgshow-footer-text-modi,
+    .plgshow-footer-text-downloads {
+        float: none;
+        clear: both;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    a.plgshow-button{
+        padding: 15px 20px;
+    }
 }

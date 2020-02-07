@@ -22,6 +22,8 @@
 /* Shortcode on the Page */
 add_shortcode("plgshow", "plgshow_shortcode");
 
+//Needed to load the rating star function
+require_once( ABSPATH . 'wp-admin/includes/template.php' );
 
 //Show the Shortcode in the post/site/content
 function plgshow_shortcode($atts) {
@@ -29,19 +31,15 @@ function plgshow_shortcode($atts) {
     //Data of the current Post
     global $post;
 
-    ob_start();
-
     // Shortcode Parameter
 	extract(shortcode_atts(array(
 		'name'		            => '',
-		'show_title'		    => 'true',
 		'show_download_link'	=> 'true',
 		'show_plugin_link'		=> 'true',
 		), $atts));
 
-    
+    //Parameters
     $name		        = !empty($name) ? $name : '';
-    $show_title 		= ( $show_title == 'false') ? false	: true;
     $show_download_link = ( $show_download_link == 'false') ? false	: true;
     $show_plugin_link 	= ( $show_plugin_link == 'false') ? false	: true;
     ?>
@@ -53,8 +51,22 @@ function plgshow_shortcode($atts) {
 
     <?php
     if(!empty($name)){
-        $plgin_data = apply_filters( 'plgshow_api_parser', $name );
-        var_dump($plgin_data);
+
+        //Get Transient
+        $plgin_data = get_transient( 'plgshow_'. preg_replace( '/\-/', '_', $name ) );
+        if( false === $plgin_data || empty($plgin_data) ){
+
+            //Get data
+            $plgin_data = apply_filters( 'plgshow_api_parser', $name );
+
+            //Set Transient - 12h
+		    set_transient( 'plgshow_'. preg_replace( '/\-/', '_', $name ), $plgin_data, 720*60 );
+        }
+
+        // Date format Internationalizion
+        global  $wppicDateFormat;
+        $plgin_data->last_updated = date_i18n( $wppicDateFormat, strtotime( $plgin_data->last_updated ) );
+
         if( !$plgin_data ){
             $shortcode_view = '
             <div class="plgshow-showroom">
@@ -67,33 +79,51 @@ function plgshow_shortcode($atts) {
                 </div>
             </div>
             ';
-        
         }else{
                 $shortcode_view = '
                 <div class="plgshow-showroom">
                     <div class="plgshow-plgtable">
                         <div class="plgshow-image"><img class="plugin-icon" src="'.$plgin_data->icons["1x"].'"></div>
                         <div class="plgshow-text-content">
-                            <div class="plgshow-header">'.$plgin_data->name.'</div>
+                            <div class="plgshow-header"><a href="'.$plgin_data->url.'">'.$plgin_data->name.'</a></div>
                             <div class="plgshow-description">'.$plgin_data->short_description.'</div>
-                            <div class="plgshow-author">'.__('by','plgshow').' '.$plgin_data->author.'</div>
+                            <div class="plgshow-author">'.__('by','plgshow').' <a href="'.$plgin_data->author_profile.'">'.$plgin_data->author.'</a></div>
                         </div>
                     </div>
                     <div class="plgshow-footer">
                         <div class="plgshow-footer-text">
-                            <div class="plgshow-star-rating">
-                                <span class="screen-reader-text">5.0 rating based on 33 ratings</span>
-                                <div class="star star-full" aria-hidden="true"></div>
-                                <div class="star star-full" aria-hidden="true"></div>
-                                <div class="star star-full" aria-hidden="true"></div>
-                                <div class="star star-full" aria-hidden="true"></div>
-                                <div class="star star-full" aria-hidden="true"></div>
-                            </div>
-                        </div>
-                        <div class="plgshow-dwn-link">
-                            <a class="btn button btn-secondary" href="'.$plgin_data->download_link.'" target="_blank">'.__('Download','plgshow').'</a>  <a class="btn button btn-primary" href="'.$plgin_data->url.'" target="_blank">'.__('Information','plgshow').'</a>
-                        </div>
-                    </div>
+                            <div class="plgshow-star-rating">'.wp_star_rating( array( 'rating' => $plgin_data->rating, 'type' => 'percent', 'number' => $plgin_data->num_ratings ) ).'</div>
+                            ('.$plgin_data->num_ratings.')
+                        </div>';
+
+                        if($show_download_link || $show_plugin_link){
+                            $shortcode_view .= '<div class="plgshow-dwn-link">';
+                        }
+
+                        if($show_download_link){
+                            $shortcode_view .= '<a class="plgshow-button" href="'.$plgin_data->download_link.'" target="_blank"><span class="dashicons dashicons-download"></span> '.__('Download','plgshow').'</a>';
+                        }
+
+                        if($show_plugin_link){
+                            $shortcode_view .= '<a class="plgshow-button" href="'.$plgin_data->url.'" target="_blank"><span class="dashicons dashicons-wordpress-alt"></span> '.__('Information','plgshow').'</a>';
+                        }
+
+                        if($show_download_link || $show_plugin_link){
+                            $shortcode_view .= '</div>';
+                        }
+                        
+                        if($plgin_data->active_installs != 0){
+                            $shortcode_view .= '
+                            <div class="plgshow-footer-text-downloads">
+                            <span class="dashicons dashicons-yes"></span>'.number_format( filter_var( $plgin_data->active_installs, FILTER_SANITIZE_NUMBER_INT ) ).'+ '.__('Active Installs','plgshow').'
+                            </div>';
+                        }else{
+                            $shortcode_view .= '
+                            <div class="plgshow-footer-text-modi">
+                            <span class="dashicons dashicons-edit"></span><span style="font-weight:bold;">'.__('Last Updated:','plgshow').'</span> '.$plgin_data->last_updated.'
+                            </div>'; 
+                        }
+                $shortcode_view .= '</div>
                 </div>
                 ';
         }
