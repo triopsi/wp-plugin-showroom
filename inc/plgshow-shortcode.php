@@ -25,7 +25,12 @@ add_shortcode("plgshow", "plgshow_shortcode");
 //Needed to load the rating star function
 require_once( ABSPATH . 'wp-admin/includes/template.php' );
 
-//Show the Shortcode in the post/site/content
+/**
+ * Show the Shortcode in the post/site/content
+ *
+ * @param [type] $atts
+ * @return void
+ */
 function plgshow_shortcode($atts) {
 
     //Data of the current Post

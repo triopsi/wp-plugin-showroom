@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-07 15:30+0100\n"
+"PO-Revision-Date: 2020-02-07 15:40+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de\n"
+
+#: wp-plugin-showroom.php:5
+msgid "A Wordpress Shortcode Plugin to show a Wordpress plugin on the page or post."
+msgstr "Ein Seiten/Beitrags Shortcode, um WordPress Plugins in einem Post besser darstellen zu können."
+
+#: inc/plgshow-shortcode.php:77
+msgid "Plugin not found"
+msgstr "Plugin nicht gefunden"
+
+#: inc/plgshow-shortcode.php:90
+msgid "by"
+msgstr "von"
+
+#: inc/plgshow-shortcode.php:104
+msgid "Download"
+msgstr "Download"
+
+#: inc/plgshow-shortcode.php:108
+msgid "Information"
+msgstr "Information"
+
+#: inc/plgshow-shortcode.php:118
+msgid "Active Installs"
+msgstr "Aktive Installationen"
+
+#: inc/plgshow-shortcode.php:123
+msgid "Last Updated:"
+msgstr "Letztes Update:"

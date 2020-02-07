@@ -13,7 +13,13 @@ A Wordpress Shortcode Plugin to show a Wordpress plugin on the page or post.
  
 == Description ==
 
-The "WP Plugin Showroom" Plugin is a very easy way to show Wordpres plugins in a showwroom. You can show a wp plugin in a post or site. 
+The "WP Plugin Showroom" Plugin is a very easy way to show Wordpres plugins in a showroom. You can show a wp plugin in a post or site. 
+
+= Usage =
+
+1. Create a post or site 
+1. Paste the following shortcode [plgshow name="<PLUGIN-SLUG>"]
+1. finished
 
 = Bugs, technical hints or contribute =
 
