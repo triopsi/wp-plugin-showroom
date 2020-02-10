@@ -26,6 +26,16 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
  
 /* Delete plugin options */
 delete_option("plgshow_plugin_version");
-delete_site_option("plgshow_plugin_version");
 
+/* Delete transients */
+global $wpdb;
 
+$wppic_transients = $wpdb->get_results(
+    "SELECT option_name AS name,
+    option_value AS value FROM $wpdb->options
+    WHERE option_name LIKE '_transient_plgshow_%'"
+);
+
+foreach( ( array ) $wppic_transients as $singleTransient ){
+    delete_transient( str_replace( '_transient_', '', $singleTransient->name ) );
+}

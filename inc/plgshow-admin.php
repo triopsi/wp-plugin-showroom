@@ -41,6 +41,39 @@ function plgshow_check_version() {
    * @return void
    */
   function add_admin_plgshow_style_js() {
-    /* Color JS */
-    // wp_enqueue_script( 'plgshow-admin-script-color', plugins_url('../assets/js/plgshow-admin-script-color.js', __FILE__), array( 'jquery', 'wp-color-picker'  ) );
+
+    /* CSS */
+    wp_enqueue_style( 'plgshow-admin-style', plugins_url('../assets/css/plgshow-admin-style.css', __FILE__));
+    
+    /* Jquery Ajax JS */
+    wp_enqueue_script( 'plgshow-admin', plugins_url('../assets/js/plgshow-admin.js', __FILE__), array( 'jquery' ) );
+
   }
+
+/**
+* Update Version Number
+*
+* @return void
+*/
+function plgshow_activation(){
+	update_option('plgshow_plugin_version', PLGSHOW_VERSION);
+}
+
+/**
+ * Find transients and delete it
+ */
+function plgshow_delete_transients(){
+
+	global $wpdb;
+
+	$wppic_transients = $wpdb->get_results(
+		"SELECT option_name AS name,
+		option_value AS value FROM $wpdb->options
+		WHERE option_name LIKE '_transient_plgshow_%'"
+  );
+  
+	foreach( ( array ) $wppic_transients as $singleTransient ){
+		delete_transient( str_replace( '_transient_', '', $singleTransient->name ) );
+  }
+  
+}

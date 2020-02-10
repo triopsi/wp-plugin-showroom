@@ -1,0 +1,8 @@
+.trash-buffer-spinner{
+	display: inline-block;
+	width:20px;
+	height:20px;
+	background-size: 100%;
+	position: absolute;
+	margin: 4px 0 0 5px;
+}

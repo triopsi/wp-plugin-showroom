@@ -72,7 +72,7 @@ function plgshow_shortcode($atts) {
         global  $wppicDateFormat;
         $plgin_data->last_updated = date_i18n( $wppicDateFormat, strtotime( $plgin_data->last_updated ) );
 
-        if( !$plgin_data ){
+        if( is_null($plgin_data) || empty($plgin_data) ){
             $shortcode_view = '
             <div class="plgshow-showroom">
                 <div class="plgshow-plgtable">
@@ -92,7 +92,7 @@ function plgshow_shortcode($atts) {
                         <div class="plgshow-text-content">
                             <div class="plgshow-header"><a href="'.$plgin_data->url.'">'.$plgin_data->name.'</a></div>
                             <div class="plgshow-description">'.$plgin_data->short_description.'</div>
-                            <div class="plgshow-author">'.__('by','plgshow').' <a href="'.$plgin_data->author_profile.'">'.$plgin_data->author.'</a></div>
+                            <div class="plgshow-author">'.__('by','plgshow').' '.$plgin_data->author.'</div>
                         </div>
                     </div>
                     <div class="plgshow-footer">

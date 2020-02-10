@@ -30,6 +30,9 @@
     text-decoration: none;
     box-shadow: none;
 }
+.plgshow-description{
+    font-size:0.8em;
+}
 .plgshow-footer{
     margin-top: 10px;
     text-align: right;

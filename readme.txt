@@ -5,7 +5,7 @@ Tags: shortcode, site, post, showroom, plugin, wp
 Requires at least: 5.3
 Tested up to: 5.3.2
 Requires PHP: 5.6
-Stable tag: 0.0.1
+Stable tag: 1.0.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0
  
@@ -46,8 +46,15 @@ Nothing yet.
  
 == Changelog ==
  
-= 0.0.1 (dd/mm/yyyy)=
+= 0.0.1 (09/02/2020)=
 * First release.
+
+= 1.0.0 (10/02/2020)=
+* Bugfix: Verify - No Plugin found
+* Add setting page
+* Add clear buffer button on the setting page
+* Bugifx: Author Link
+* Style: Description Font Size 0.8em
  
 == Upgrade Notice ==
 
