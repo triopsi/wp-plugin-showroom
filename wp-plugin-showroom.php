@@ -38,6 +38,15 @@ define('PLGSHOW_PATH', plugin_dir_path(__FILE__));
 /* Loads plugin's text domain. */
 add_action( 'init', 'plgshow_load_plugin_textdomain' );
 
+/* Add settings link on plugin list page */
+function plgshow_option_link( $links ) {
+    $links[] = '<a href="' . admin_url( 'options-general.php?page=plgshow' ) . '" title="'. __( 'WP Plugin Showroom Settings', 'plgshow' ) .'">' . __( 'Settings', 'plgshow' ) . '</a>';
+    return $links;
+}
+
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'plgshow_option_link' );
+
+
 /* Front Scripts and Styles */
 require_once('inc/plgshow-user.php');
 

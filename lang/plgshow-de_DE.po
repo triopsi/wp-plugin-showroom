@@ -22,6 +22,12 @@ msgstr ""
 msgid "A Wordpress Shortcode Plugin to show a Wordpress plugin on the page or post."
 msgstr "Ein Seiten/Beitrags Shortcode, um WordPress Plugins in einem Post besser darstellen zu können."
 
+msgid "WP Plugin Showroom Settings"
+msgstr "WP Plugin Einstellungen"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
 #: inc/plgshow-shortcode.php:77
 msgid "Plugin not found"
 msgstr "Plugin nicht gefunden"

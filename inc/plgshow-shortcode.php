@@ -69,8 +69,8 @@ function plgshow_shortcode($atts) {
         }
 
         // Date format Internationalizion
-        global  $wppicDateFormat;
-        $plgin_data->last_updated = date_i18n( $wppicDateFormat, strtotime( $plgin_data->last_updated ) );
+        $plgshowDateFormat = get_option( 'date_format' );
+        $plgin_data->last_updated = date_i18n( $plgshowDateFormat, strtotime( $plgin_data->last_updated ) );
 
         if( is_null($plgin_data) || empty($plgin_data) ){
             $shortcode_view = '
