@@ -46,17 +46,17 @@ Nothing yet.
  
 == Changelog ==
  
-= 0.0.1 (09/02/2020)=
+= 0.0.1 (09/02/2020) =
 * First release.
 
-= 1.0.0 (10/02/2020)=
+= 1.0.0 (10/02/2020) =
 * Bugfix: Verify - No Plugin found
 * Add setting page
 * Add clear buffer button on the setting page
 * Bugifx: Author Link
 * Style: Description Font Size 0.8em
 
-= 1.0.1 (10/02/2020)=
+= 1.0.1 (10/02/2020) =
 * Add option links into plugin list
 * Bugfix: date fix
  
