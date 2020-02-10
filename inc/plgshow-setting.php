@@ -51,8 +51,8 @@ function plgshow_options_page_html() {
 	<div class="wrap">
 		<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 		<div id="post-body-content">
-			<div id="wppic-admin-page" class="meta-box-sortabless">
-				<div id="wppic-shortcode" class="postbox">
+			<div id="plgshow-admin-page" class="meta-box-sortabless">
+				<div id="plgshow-shortcode" class="postbox">
 					<h3 class="hndle"><span><?php _e( 'How to use WP Plugin Showroom shortcode?', 'plgshow' ) ; ?></span></h3>
 					<div class="inside">
 						<h3 class="wp-pic-title"><?php _e( 'Shortcode parameters', 'plgshow' ) ; ?></h3>

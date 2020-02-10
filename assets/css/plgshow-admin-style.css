@@ -1,3 +1,9 @@
+#plgshow-shortcode h3.hndle {
+    margin: 0;
+    padding: 8px 0 8px 12px;
+    cursor: default;
+}
+
 .trash-buffer-spinner{
 	display: inline-block;
 	width:20px;
