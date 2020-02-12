@@ -61,6 +61,9 @@ add_filter( 'plugin_row_meta', 'plgshow_meta_links', 10, 2 );
 /* Front Scripts and Styles */
 require_once('inc/plgshow-user.php');
 
+/* Blocks JS Gutenberg */
+require_once('inc/plgshow-init.php');
+
 /* Front Scripts and Styles */
 require_once('inc/plgshow-admin.php');
 

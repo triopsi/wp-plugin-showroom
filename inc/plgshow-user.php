@@ -61,7 +61,7 @@ function plgshow_plugin_api( $slug ){
 
 	//Check response
 	if( !is_wp_error( $plugin_info ) ){
-		$plgshow_data = array(
+		$plgshow_data = (object) array(
 				'url' 				   	=> 'https://wordpress.org/plugins/'.$slug.'/',
 				'name' 				   	=> $plugin_info->name,
 				'slug' 				   	=> $slug,
@@ -88,7 +88,7 @@ function plgshow_plugin_api( $slug ){
 				'last_updated' 	   		=> $plugin_info->last_updated,
 		);
 	}else{
-      $plgshow_data = null;
+      $plgshow_data = NULL;
    }
-	return (object) $plgshow_data;
+	return $plgshow_data;
 }

@@ -64,27 +64,30 @@ function plgshow_shortcode($atts) {
             //Get data
             $plgin_data = apply_filters( 'plgshow_api_parser', $name );
 
-            //Set Transient - 12h
-		    set_transient( 'plgshow_'. preg_replace( '/\-/', '_', $name ), $plgin_data, 720*60 );
+            if( !is_null($plgin_data) || !empty($plgin_data) ){
+                //Set Transient - 12h
+                set_transient( 'plgshow_'. preg_replace( '/\-/', '_', $name ), $plgin_data, 720*60 );
+            }
         }
 
         // Date format Internationalizion
         $plgshowDateFormat = get_option( 'date_format' );
-        $plgin_data->last_updated = date_i18n( $plgshowDateFormat, strtotime( $plgin_data->last_updated ) );
 
         if( is_null($plgin_data) || empty($plgin_data) ){
             $shortcode_view = '
             <div class="plgshow-showroom">
                 <div class="plgshow-plgtable">
-                    <div class="plgshow-image"></div>
                     <div class="plgshow-text-content">
                         <div class="plgshow-header">'.$name.'</div>
-                        <div class="plgshow-description">' . __( 'Plugin not found', 'plgshow' ) . '</div>
+                        <div class="plgshow-description">' . __( 'Plugin not found!', 'plgshow' ) . '</div>
                     </div>
                 </div>
             </div>
             ';
         }else{
+                //Transformation Date
+                $plgin_data->last_updated = date_i18n( $plgshowDateFormat, strtotime( $plgin_data->last_updated ) );
+                
                 $shortcode_view = '
                 <div class="plgshow-showroom">
                     <div class="plgshow-plgtable">
