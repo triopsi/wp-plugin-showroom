@@ -59,7 +59,8 @@ function plugin_block_editor_cb( $attributes ) {
 		$args['name'] = $attributes['slug'];
 	}
 
-    $html = '<b>'.$args['name'].'</b>';//plgshow_shortcode( $args );
+    $html = plgshow_shortcode( $args );
+    // $html = '<b>'.$args['name'].'</b>';//plgshow_shortcode( $args );
     // $html = '[plgshow name="';
     // $html .= $args['slug'];
     // $html .= '"]';

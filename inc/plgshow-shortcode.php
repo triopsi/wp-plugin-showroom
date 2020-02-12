@@ -47,14 +47,7 @@ function plgshow_shortcode($atts) {
     $name		        = !empty($name) ? $name : '';
     $show_download_link = ( $show_download_link == 'false') ? false	: true;
     $show_plugin_link 	= ( $show_plugin_link == 'false') ? false	: true;
-    ?>
-    <style>
-        .plgshow-footer a{
-            color:#fff;
-        }
-    </style>
 
-    <?php
     if(!empty($name)){
 
         //Get Transient
@@ -87,7 +80,7 @@ function plgshow_shortcode($atts) {
         }else{
                 //Transformation Date
                 $plgin_data->last_updated = date_i18n( $plgshowDateFormat, strtotime( $plgin_data->last_updated ) );
-                
+                $star_rating = wp_star_rating( array( 'rating' => $plgin_data->rating, 'type' => 'percent', 'number' => $plgin_data->num_ratings ) );
                 $shortcode_view = '
                 <div class="plgshow-showroom">
                     <div class="plgshow-plgtable">
@@ -100,7 +93,7 @@ function plgshow_shortcode($atts) {
                     </div>
                     <div class="plgshow-footer">
                         <div class="plgshow-footer-text">
-                            <div class="plgshow-star-rating">'.wp_star_rating( array( 'rating' => $plgin_data->rating, 'type' => 'percent', 'number' => $plgin_data->num_ratings ) ).'</div>
+                            <div class="plgshow-star-rating">'.$star_rating.'</div>
                             ('.$plgin_data->num_ratings.')
                         </div>';
 
