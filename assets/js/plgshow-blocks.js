@@ -6,7 +6,7 @@
   
   var el = element.createElement;
   var blockStyle = {
-      backgroundColor: '#cecece',
+      backgroundColor: '#ffb0b0',
       color: '#fff',
       padding: '10px',
       textAlign: "center",

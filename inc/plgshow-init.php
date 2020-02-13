@@ -19,6 +19,14 @@
 * along with plgshow. If not, see https://www.gnu.org/licenses/gpl-3.0.
 **/
 
+function wp_plugin_showroom_block_assets() { 
+	// Styles.
+	wp_enqueue_style('plgshow-block-style', plugins_url( '../assets/css/plgshow-block-style.css', __FILE__ ), array( 'wp-editor' ), false, 'all');
+}
+
+add_action( 'enqueue_block_assets', 'wp_plugin_showroom_block_assets' );
+
+
 function plgshowLoadBlock() {
     
     wp_enqueue_script( 'plg-showroom', plugins_url('../assets/js/plgshow-blocks.js', __FILE__), array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), true );

@@ -47,7 +47,16 @@ function plgshow_shortcode($atts) {
     $name		        = !empty($name) ? $name : '';
     $show_download_link = ( $show_download_link == 'false') ? false	: true;
     $show_plugin_link 	= ( $show_plugin_link == 'false') ? false	: true;
+    ob_start();
+    ?>
+    <style>
+        .plgshow-footer a{
+            color:#fff;
+        }
+    </style>
 
+    <?php
+    $o = ob_get_clean();
     if(!empty($name)){
 
         //Get Transient
@@ -80,7 +89,7 @@ function plgshow_shortcode($atts) {
         }else{
                 //Transformation Date
                 $plgin_data->last_updated = date_i18n( $plgshowDateFormat, strtotime( $plgin_data->last_updated ) );
-                $star_rating = wp_star_rating( array( 'rating' => $plgin_data->rating, 'type' => 'percent', 'number' => $plgin_data->num_ratings ) );
+                $star_rating = wp_star_rating( array( 'rating' => $plgin_data->rating, 'type' => 'percent', 'number' => $plgin_data->num_ratings, 'echo' => false ) );
                 $shortcode_view = '
                 <div class="plgshow-showroom">
                     <div class="plgshow-plgtable">
@@ -130,6 +139,6 @@ function plgshow_shortcode($atts) {
         }
 
     }
-    return $shortcode_view;
+    return $o.$shortcode_view;
   
   }
