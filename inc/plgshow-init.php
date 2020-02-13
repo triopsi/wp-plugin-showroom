@@ -19,18 +19,25 @@
 * along with plgshow. If not, see https://www.gnu.org/licenses/gpl-3.0.
 **/
 
+/**
+ * Add Block Editor Assets
+ */
 function wp_plugin_showroom_block_assets() { 
 	// Styles.
 	wp_enqueue_style('plgshow-block-style', plugins_url( '../assets/css/plgshow-block-style.css', __FILE__ ), array( 'wp-editor' ), false, 'all');
 }
-
 add_action( 'enqueue_block_assets', 'wp_plugin_showroom_block_assets' );
 
 
+/**
+ * Add Gutenberg Block
+ */
 function plgshowLoadBlock() {
     
+    //Add Script Block
     wp_enqueue_script( 'plg-showroom', plugins_url('../assets/js/plgshow-blocks.js', __FILE__), array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), true );
     
+    //Add Atributes for server-side-parse
     register_block_type( 'plgshow-wp/plg-showroom', array(
           'attributes'  => array(
               'slug' => array(
@@ -41,21 +48,23 @@ function plgshowLoadBlock() {
           'render_callback' => 'plugin_block_editor_cb',
     ) );
 
-    if( function_exists( 'wp_set_script_translations' ) ) {
-        wp_set_script_translations( 'plg-showroom', 'plgshow' );
-    }elseif ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
-        $locale  = gutenberg_get_jed_locale_data( 'plgshow' );
-        $content = 'wp.i18n.setLocaleData( ' . wp_json_encode( $locale ) . ', "plgshow" );';
-        wp_script_add_data( 'plg-showroom', 'data', $content );
-    }elseif ( function_exists( 'wp_get_jed_locale_data' ) ) {
-		/* for 5.0 */
-		$locale  = wp_get_jed_locale_data( 'plgshow' );
-		$content = 'wp.i18n.setLocaleData( ' . wp_json_encode( $locale ) . ', "plgshow" );';
-		wp_script_add_data( 'plg-showroom', 'data', $content );
-	}
-
+    //set js variable
+    wp_localize_script(
+        'plg-showroom',
+        'plgshow',
+        array(
+            'logo_plugin'   => plugins_url( '../assets/img/icon-128x128.png', __FILE__ ),
+            'title'         => __('Plugin-Showroom', 'plgshow'),
+            'des'           => __('Add a plugin showcase to your post/site.', 'plgshow'),
+            'plgname'       => __('Pluginname: ', 'plgshow'),
+            'plgsug'        => __('PLUGIN-SLUG', 'plgshow'),
+        )
+    );
 }
 
+/**
+ * Add Block Callback
+ */
 function plugin_block_editor_cb( $attributes ) {
 	if ( is_admin() ) {
 		return;
@@ -68,11 +77,7 @@ function plugin_block_editor_cb( $attributes ) {
 	}
 
     $html = plgshow_shortcode( $args );
-    // $html = '<b>'.$args['name'].'</b>';//plgshow_shortcode( $args );
-    // $html = '[plgshow name="';
-    // $html .= $args['slug'];
-    // $html .= '"]';
 	return $html;
 }
-   
+
 add_action('init', 'plgshowLoadBlock');

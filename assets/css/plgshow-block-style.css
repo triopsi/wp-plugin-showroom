@@ -1,3 +1,10 @@
+.wp-block-plgshow-wp-plg-showroom{
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+    width: 100%;
+    text-align: center;
+    background:#f0f0f0;
+    padding-bottom: 20px;
+}
 input.wp-block-plgshow-wp-plg-showroom{
-	width:50%;
+    width:50%;
 }
