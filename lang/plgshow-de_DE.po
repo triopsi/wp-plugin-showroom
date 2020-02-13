@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-07 15:30+0100\n"
-"PO-Revision-Date: 2020-02-12 13:32+0100\n"
+"PO-Revision-Date: 2020-02-13 13:28+0100\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -105,3 +105,9 @@ msgstr "Fügt ein Plugin Showroom zur verfügung."
 
 msgid "Plugin-Showroom"
 msgstr "Plugin Showroom"
+
+msgid "Pluginname: "
+msgstr "Pluginname: "
+
+msgid "PLUGIN-SLUG"
+msgstr "PLUGIN-SLUG"
