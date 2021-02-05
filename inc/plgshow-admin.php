@@ -33,14 +33,14 @@ function plgshow_check_version() {
   add_action('plugins_loaded', 'plgshow_check_version');
   
   /* Add Admin panel */
-  add_action( 'admin_enqueue_scripts', 'add_admin_plgshow_style_js' );
+  add_action( 'admin_enqueue_scripts', 'plgshow_add_admin_style_js' );
   
   /**
    * Add Style and JS in the Admin page
    *
    * @return void
    */
-  function add_admin_plgshow_style_js() {
+  function plgshow_add_admin_style_js() {
 
     /* CSS */
     wp_enqueue_style( 'plgshow-admin-style', plugins_url('../assets/css/plgshow-admin-style.css', __FILE__));

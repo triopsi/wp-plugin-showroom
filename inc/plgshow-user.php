@@ -21,9 +21,9 @@
 
 
 /* Add CSS Class to the front */
-add_action( 'wp_enqueue_scripts', 'add_plgshow_front_css', 99 );
+add_action( 'wp_enqueue_scripts', 'plgshow_add_plgshow_front_css', 99 );
 
-function add_plgshow_front_css() {
+function plgshow_add_plgshow_front_css() {
 
    /* CSS */
    wp_enqueue_style( 'plgshow-style', plugins_url('../assets/css/plgshow-style.css', __FILE__));

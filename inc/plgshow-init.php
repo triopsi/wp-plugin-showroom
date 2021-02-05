@@ -22,17 +22,17 @@
 /**
  * Add Block Editor Assets
  */
-function wp_plugin_showroom_block_assets() { 
+function plgshow_wp_plugin_showroom_block_assets() { 
 	// Styles.
 	wp_enqueue_style('plgshow-block-style', plugins_url( '../assets/css/plgshow-block-style.css', __FILE__ ), array( 'wp-editor' ), false, 'all');
 }
-add_action( 'enqueue_block_assets', 'wp_plugin_showroom_block_assets' );
+add_action( 'enqueue_block_assets', 'plgshow_wp_plugin_showroom_block_assets' );
 
 
 /**
  * Add Gutenberg Block
  */
-function plgshowLoadBlock() {
+function plgshow_plgshowLoadBlock() {
     
     //Add Script Block
     wp_enqueue_script( 'plg-showroom', plugins_url('../assets/js/plgshow-blocks.js', __FILE__), array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), true );
@@ -45,7 +45,7 @@ function plgshowLoadBlock() {
               )
           ),
           'editor_script'   => 'plg-showroom',
-          'render_callback' => 'plugin_block_editor_cb',
+          'render_callback' => 'plgshow_plugin_block_editor_cb',
     ) );
 
     //set js variable
@@ -65,7 +65,7 @@ function plgshowLoadBlock() {
 /**
  * Add Block Callback
  */
-function plugin_block_editor_cb( $attributes ) {
+function plgshow_plugin_block_editor_cb( $attributes ) {
 	if ( is_admin() ) {
 		return;
 	}
@@ -80,4 +80,4 @@ function plugin_block_editor_cb( $attributes ) {
 	return $html;
 }
 
-add_action('init', 'plgshowLoadBlock');
+add_action('init', 'plgshow_plgshowLoadBlock');

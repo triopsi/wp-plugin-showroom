@@ -3,7 +3,7 @@
 * Plugin Name: WP Plugin Showroom
 * Plugin URI: https://www.wiki.profoxi.de
 * Description: A Wordpress Shortcode Plugin to show a Wordpress plugin on the page or post.
-* Version: 1.1.0
+* Version: 1.1.1
 * Author: triopsi
 * Author URI: http://wiki.profoxi.de
 * Text Domain: plgshow
@@ -27,7 +27,7 @@
 
 //Definie plugin version
 if (!defined('PLGSHOW_VERSION'))
-    define('PLGSHOW_VERSION', '1.1.0');
+    define('PLGSHOW_VERSION', '1.1.1');
 
 /**
  * Define path
@@ -79,5 +79,5 @@ require_once('inc/plgshow-shortcode.php');
  * @return void
  */
 function plgshow_load_plugin_textdomain() {
-    load_plugin_textdomain( 'plgshow', FALSE, basename(PLGSHOW_PATH).'/lang/' );
+    load_plugin_textdomain( 'plgshow', '', basename(PLGSHOW_PATH).'/lang/' );
 }

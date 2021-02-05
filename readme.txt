@@ -3,9 +3,9 @@ Contributors: triopsi
 Donate link: https://www.paypal.me/triopsi
 Tags: shortcode, site, post, showroom, plugin, wp
 Requires at least: 5.3
-Tested up to: 5.3.2
+Tested up to: 5.6.1
 Requires PHP: 5.6
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0
  
@@ -45,9 +45,16 @@ Nothing yet.
 3. Shortcode in a post
  
 == Changelog ==
- 
-= 0.0.1 (09/02/2020) =
-* First release.
+
+= 1.1.1 (05/02/2021) =
+* functions deprecated fix
+
+= 1.1.0 (13/02/2020) =
+* Add Gutenberg Block
+
+= 1.0.1 (10/02/2020) =
+* Add option links into plugin list
+* Bugfix: date fix
 
 = 1.0.0 (10/02/2020) =
 * Bugfix: Verify - No Plugin found
@@ -56,13 +63,9 @@ Nothing yet.
 * Bugifx: Author Link
 * Style: Description Font Size 0.8em
 
-= 1.0.1 (10/02/2020) =
-* Add option links into plugin list
-* Bugfix: date fix
+= 0.0.1 (09/02/2020) =
+* First release.
 
-= 1.1.0 (13/02/2020) =
-* Add Gutenberg Block
- 
 == Upgrade Notice ==
 
 Nothing.
