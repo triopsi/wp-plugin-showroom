@@ -3,9 +3,9 @@ Contributors: triopsi
 Donate link: https://www.paypal.me/triopsi
 Tags: shortcode, site, post, showroom, plugin, wp
 Requires at least: 5.3
-Tested up to: 5.6.1
+Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0
  
@@ -45,6 +45,11 @@ Nothing yet.
 3. Shortcode in a post
  
 == Changelog ==
+
+= 1.1.2 =
+* Tested up WP 5.7
+* litle php code fixe
+* code formatted
 
 = 1.1.1 (05/02/2021) =
 * functions deprecated fix
